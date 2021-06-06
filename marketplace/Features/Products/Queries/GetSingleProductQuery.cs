@@ -11,7 +11,7 @@ namespace marketplace.Features.Products.Queries
 {
     public class GetSingleProductQuery : IRequest<ProductResponseModel>
     {
-        public int Id { get; set; }
+        public string Code { get; set; }
     }
 
     public class GetSingleProductQueryHandler : IRequestHandler<GetSingleProductQuery, ProductResponseModel>
@@ -27,16 +27,15 @@ namespace marketplace.Features.Products.Queries
         {
             var entity = await this.context.Products
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Code == request.Code, cancellationToken: cancellationToken);
 
             if (entity == null)
             {
-                throw new NotFoundException(nameof(Product), request.Id);
+                throw new NotFoundException(nameof(Product), request.Code);
             }
 
             return new ProductResponseModel()
             {
-                Id = entity.Id,
                 Code = entity.Code,
                 Name = entity.Name,
                 Price = entity.Price,
