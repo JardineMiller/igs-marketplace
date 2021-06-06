@@ -41,8 +41,8 @@ namespace marketplace.Data.Configurations
                 new Product
                 {
                     Id = 2,
-                    Code = "Personalised cufflinks",
-                    Name = "Product 2",
+                    Code = "002",
+                    Name = "Personalised cufflinks",
                     CreatedOn = DateTimeOffset.UtcNow,
                     Price = (decimal) 45.00
                 },

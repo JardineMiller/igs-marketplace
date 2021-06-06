@@ -33,5 +33,12 @@ namespace marketplace.Features.Products
             var id = await Mediator.Send(command);
             return Created(nameof(Create), id);
         }
+
+        [HttpPut("product")]
+        public async Task<ActionResult> Update([FromForm] UpdateProductCommand command)
+        {
+            await Mediator.Send(command);
+            return Ok();
+        }
     }
 }

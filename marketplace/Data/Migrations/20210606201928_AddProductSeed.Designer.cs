@@ -10,7 +10,7 @@ using marketplace.Data;
 namespace marketplace.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210606192039_AddProductSeed")]
+    [Migration("20210606201928_AddProductSeed")]
     partial class AddProductSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace marketplace.Migrations
                         {
                             Id = 1,
                             Code = "001",
-                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 19, 20, 39, 629, DateTimeKind.Unspecified).AddTicks(6238), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 20, 19, 28, 223, DateTimeKind.Unspecified).AddTicks(2034), new TimeSpan(0, 0, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Lavender heart",
                             Price = 9.25m
@@ -70,17 +70,17 @@ namespace marketplace.Migrations
                         new
                         {
                             Id = 2,
-                            Code = "Personalised cufflinks",
-                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 19, 20, 39, 629, DateTimeKind.Unspecified).AddTicks(7034), new TimeSpan(0, 0, 0, 0, 0)),
+                            Code = "002",
+                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 20, 19, 28, 223, DateTimeKind.Unspecified).AddTicks(2903), new TimeSpan(0, 0, 0, 0, 0)),
                             IsDeleted = false,
-                            Name = "Product 2",
+                            Name = "Personalised cufflinks",
                             Price = 45m
                         },
                         new
                         {
                             Id = 3,
                             Code = "003",
-                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 19, 20, 39, 629, DateTimeKind.Unspecified).AddTicks(7047), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 20, 19, 28, 223, DateTimeKind.Unspecified).AddTicks(2917), new TimeSpan(0, 0, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Kids T-shirt",
                             Price = 19.95m
