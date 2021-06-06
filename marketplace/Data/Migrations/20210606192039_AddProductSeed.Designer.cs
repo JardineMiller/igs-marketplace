@@ -10,7 +10,7 @@ using marketplace.Data;
 namespace marketplace.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210606184731_AddProductSeed")]
+    [Migration("20210606192039_AddProductSeed")]
     partial class AddProductSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,17 +61,17 @@ namespace marketplace.Migrations
                         new
                         {
                             Id = 1,
-                            Code = "Product-001",
-                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 18, 47, 31, 513, DateTimeKind.Unspecified).AddTicks(1426), new TimeSpan(0, 0, 0, 0, 0)),
+                            Code = "001",
+                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 19, 20, 39, 629, DateTimeKind.Unspecified).AddTicks(6238), new TimeSpan(0, 0, 0, 0, 0)),
                             IsDeleted = false,
-                            Name = "Product 1",
-                            Price = 10.25m
+                            Name = "Lavender heart",
+                            Price = 9.25m
                         },
                         new
                         {
                             Id = 2,
-                            Code = "Product-002",
-                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 18, 47, 31, 513, DateTimeKind.Unspecified).AddTicks(2385), new TimeSpan(0, 0, 0, 0, 0)),
+                            Code = "Personalised cufflinks",
+                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 19, 20, 39, 629, DateTimeKind.Unspecified).AddTicks(7034), new TimeSpan(0, 0, 0, 0, 0)),
                             IsDeleted = false,
                             Name = "Product 2",
                             Price = 45m
@@ -79,20 +79,11 @@ namespace marketplace.Migrations
                         new
                         {
                             Id = 3,
-                            Code = "Product-003",
-                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 18, 47, 31, 513, DateTimeKind.Unspecified).AddTicks(2401), new TimeSpan(0, 0, 0, 0, 0)),
+                            Code = "003",
+                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 19, 20, 39, 629, DateTimeKind.Unspecified).AddTicks(7047), new TimeSpan(0, 0, 0, 0, 0)),
                             IsDeleted = false,
-                            Name = "Product 3",
-                            Price = 9.25m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Code = "Product-004",
-                            CreatedOn = new DateTimeOffset(new DateTime(2021, 6, 6, 18, 47, 31, 513, DateTimeKind.Unspecified).AddTicks(2402), new TimeSpan(0, 0, 0, 0, 0)),
-                            IsDeleted = false,
-                            Name = "Product 4",
-                            Price = 3.99m
+                            Name = "Kids T-shirt",
+                            Price = 19.95m
                         });
                 });
 #pragma warning restore 612, 618

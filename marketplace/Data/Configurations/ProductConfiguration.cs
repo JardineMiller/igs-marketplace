@@ -33,15 +33,15 @@ namespace marketplace.Data.Configurations
                 new Product
                 {
                     Id = 1,
-                    Code = "Product-001",
-                    Name = "Product 1",
+                    Code = "001",
+                    Name = "Lavender heart",
                     CreatedOn = DateTimeOffset.UtcNow,
-                    Price = (decimal) 10.25
+                    Price = (decimal) 9.25
                 },
                 new Product
                 {
                     Id = 2,
-                    Code = "Product-002",
+                    Code = "Personalised cufflinks",
                     Name = "Product 2",
                     CreatedOn = DateTimeOffset.UtcNow,
                     Price = (decimal) 45.00
@@ -49,18 +49,10 @@ namespace marketplace.Data.Configurations
                 new Product
                 {
                     Id = 3,
-                    Code = "Product-003",
-                    Name = "Product 3",
+                    Code = "003",
+                    Name = "Kids T-shirt",
                     CreatedOn = DateTimeOffset.UtcNow,
-                    Price = (decimal) 9.25
-                },
-                new Product
-                {
-                    Id = 4,
-                    Code = "Product-004",
-                    Name = "Product 4",
-                    CreatedOn = DateTimeOffset.UtcNow,
-                    Price = (decimal) 3.99
+                    Price = (decimal) 19.95
                 }
             );
         }
