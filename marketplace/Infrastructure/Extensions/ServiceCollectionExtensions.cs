@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace marketplace.Infrastructure
+namespace marketplace.Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
     {

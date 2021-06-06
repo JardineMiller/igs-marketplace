@@ -1,4 +1,5 @@
 using marketplace.Data;
+using marketplace.Infrastructure.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,11 @@ namespace marketplace.Infrastructure
             using var services = app.ApplicationServices.CreateScope();
             var dbContext = services.ServiceProvider.GetService<ApplicationDbContext>();
             dbContext?.Database.Migrate();
+        }
+
+        public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<CustomExceptionMiddleware>();
         }
     }
 }

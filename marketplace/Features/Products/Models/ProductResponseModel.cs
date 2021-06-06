@@ -1,6 +1,6 @@
 namespace marketplace.Features.Products.Models
 {
-    public class ProductListResponseModel
+    public class ProductResponseModel
     {
         public int Id { get; set; }
         public string Code { get; set; }

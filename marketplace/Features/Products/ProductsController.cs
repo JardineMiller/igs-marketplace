@@ -8,10 +8,19 @@ namespace marketplace.Features.Products
 {
     public class ProductsController : ApiController
     {
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductListResponseModel>>> GetAll()
+        [HttpGet("products")]
+        public async Task<ActionResult<IEnumerable<ProductResponseModel>>> GetAll()
         {
             var query = new GetAllProductsQuery();
+            var result = await this.Mediator.Send(query);
+
+            return Ok(result);
+        }
+
+        [HttpGet("product/{id:int}")]
+        public async Task<ActionResult<ProductResponseModel>> GetById(int id)
+        {
+            var query = new GetSingleProductQuery() {Id = id};
             var result = await this.Mediator.Send(query);
 
             return Ok(result);

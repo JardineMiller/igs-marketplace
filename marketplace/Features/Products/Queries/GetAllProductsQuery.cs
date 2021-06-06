@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace marketplace.Features.Products.Queries
 {
-    public class GetAllProductsQuery : IRequest<IEnumerable<ProductListResponseModel>> { }
+    public class GetAllProductsQuery : IRequest<IEnumerable<ProductResponseModel>> { }
 
-    public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, IEnumerable<ProductListResponseModel>>
+    public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, IEnumerable<ProductResponseModel>>
     {
         private readonly ApplicationDbContext context;
 
@@ -20,12 +20,12 @@ namespace marketplace.Features.Products.Queries
             this.context = context;
         }
 
-        public async Task<IEnumerable<ProductListResponseModel>> Handle(GetAllProductsQuery request,
+        public async Task<IEnumerable<ProductResponseModel>> Handle(GetAllProductsQuery request,
             CancellationToken cancellationToken)
         {
             return await context.Products
                 .AsNoTracking()
-                .Select(x => new ProductListResponseModel
+                .Select(x => new ProductResponseModel
                 {
                     Id = x.Id,
                     Name = x.Name,

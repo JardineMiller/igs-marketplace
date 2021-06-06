@@ -1,5 +1,6 @@
 using System.Reflection;
 using marketplace.Infrastructure;
+using marketplace.Infrastructure.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,7 @@ namespace marketplace
             }
 
             app
+                .UseCustomExceptionHandler()
                 .UseSwaggerUI()
                 .UseHttpsRedirection()
                 .UseRouting()
