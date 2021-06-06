@@ -1,7 +1,4 @@
 namespace marketplace.Controllers
 {
-    public class ProductsController : ApiController
-    {
-
-    }
+    public class ProductsController : ApiController { }
 }

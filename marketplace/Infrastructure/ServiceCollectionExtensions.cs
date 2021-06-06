@@ -1,7 +1,5 @@
 using FluentValidation.AspNetCore;
 using marketplace.Data;
-using marketplace.Data.Repositories;
-using marketplace.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,10 +45,6 @@ namespace marketplace.Infrastructure
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services
-                .AddTransient<IProductRepository, ProductRepository>()
-                .AddTransient<IProductService, ProductService>();
-
             return services;
         }
     }
