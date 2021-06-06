@@ -22,6 +22,7 @@ namespace marketplace
             services
                 .AddControllersWithValidation()
                 .AddDatabase(Configuration)
+                .AddApplicationServices()
                 .AddSwagger();
         }
 
