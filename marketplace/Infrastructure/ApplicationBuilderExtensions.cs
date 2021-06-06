@@ -14,7 +14,6 @@ namespace marketplace.Infrastructure
                 .UseSwaggerUI(options =>
                 {
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Marketplace API");
-                    options.RoutePrefix = "docs/index";
                 });
 
             return app;

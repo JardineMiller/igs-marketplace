@@ -1,4 +1,6 @@
+using System.Reflection;
 using marketplace.Infrastructure;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,7 @@ namespace marketplace
         {
             services
                 .AddControllersWithValidation()
+                .AddMediatR(Assembly.GetExecutingAssembly())
                 .AddDatabase(Configuration)
                 .AddApplicationServices()
                 .AddSwagger();
