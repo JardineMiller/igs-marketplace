@@ -19,9 +19,9 @@ namespace marketplace.Features.Products
         }
 
         [HttpGet("product/{id:int}")]
-        public async Task<ActionResult<ProductResponseModel>> GetById(string code)
+        public async Task<ActionResult<ProductResponseModel>> GetById(int id)
         {
-            var query = new GetSingleProductQuery {Code = code};
+            var query = new GetSingleProductQuery {Id = id};
             var result = await Mediator.Send(query);
 
             return Ok(result);
