@@ -9,6 +9,9 @@ namespace marketplace.Features.Products
 {
     public class ProductsController : ApiController
     {
+        /// <summary>
+        /// Fetch all un-deleted Products
+        /// </summary>
         [HttpGet("products")]
         public async Task<ActionResult<IEnumerable<ProductResponseModel>>> GetAll()
         {
@@ -18,6 +21,10 @@ namespace marketplace.Features.Products
             return Ok(result);
         }
 
+        /// <summary>
+        /// Fetch a single, un-deleted Product by its database id
+        /// </summary>
+        /// <param name="id"></param>
         [HttpGet("product/{id:int}")]
         public async Task<ActionResult<ProductResponseModel>> GetById(int id)
         {
@@ -27,18 +34,42 @@ namespace marketplace.Features.Products
             return Ok(result);
         }
 
+        /// <summary>
+        /// Create a new product
+        /// </summary>
+        /// <param name="command"></param>
         [HttpPost("product")]
         public async Task<ActionResult> Create([FromForm] CreateProductCommand command)
         {
             var id = await Mediator.Send(command);
-            return Created(nameof(Create), id);
+            return Ok(id);
         }
 
-        [HttpPut("product")]
-        public async Task<ActionResult> Update([FromForm] UpdateProductCommand command)
+        /// <summary>
+        /// Update an existing product
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="id"></param>
+        [HttpPut("product/{id:int}")]
+        public async Task<ActionResult> Update([FromForm] UpdateProductCommand command, int id)
         {
+            command.Id = id;
             await Mediator.Send(command);
             return Ok();
+        }
+
+        /// <summary>
+        /// Delete an existing product
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("product/{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var command = new DeleteProductCommand {Id = id};
+            var result = await Mediator.Send(command);
+
+            return Ok(result);
         }
     }
 }

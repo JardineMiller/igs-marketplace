@@ -1,4 +1,5 @@
 using System.Reflection;
+using marketplace.Data.Seeds;
 using marketplace.Infrastructure;
 using marketplace.Infrastructure.Extensions;
 using MediatR;
@@ -31,7 +32,7 @@ namespace marketplace
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ISeeder seeder)
         {
             if (env.IsDevelopment())
             {
@@ -45,6 +46,8 @@ namespace marketplace
                 .UseRouting()
                 .UseEndpoints(endpoints => { endpoints.MapControllers(); })
                 .ApplyMigrations();
+
+            seeder.Seed();
         }
     }
 }

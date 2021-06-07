@@ -17,23 +17,17 @@ namespace marketplace.Data.Configurations
                 .HasQueryFilter(p => !p.IsDeleted);
 
             builder
-                .Property(p => p.Code)
-                .IsRequired()
-                .HasMaxLength(MaxCodeLength);
-
-            builder
                 .Property(p => p.Name)
                 .IsRequired()
                 .HasMaxLength(MaxNameLength);
 
             builder.Property(p => p.Price)
-                .HasColumnType("decimal(18,4)");
+                .HasColumnType("decimal(18,2)");
 
             builder.HasData(
                 new Product
                 {
                     Id = 1,
-                    Code = "001",
                     Name = "Lavender heart",
                     CreatedOn = DateTimeOffset.UtcNow,
                     Price = (decimal) 9.25
@@ -41,7 +35,6 @@ namespace marketplace.Data.Configurations
                 new Product
                 {
                     Id = 2,
-                    Code = "002",
                     Name = "Personalised cufflinks",
                     CreatedOn = DateTimeOffset.UtcNow,
                     Price = (decimal) 45.00
@@ -49,7 +42,6 @@ namespace marketplace.Data.Configurations
                 new Product
                 {
                     Id = 3,
-                    Code = "003",
                     Name = "Kids T-shirt",
                     CreatedOn = DateTimeOffset.UtcNow,
                     Price = (decimal) 19.95

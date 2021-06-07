@@ -1,5 +1,6 @@
 using FluentValidation.AspNetCore;
 using marketplace.Data;
+using marketplace.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -45,6 +46,8 @@ namespace marketplace.Infrastructure.Extensions
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<ISeeder, DatabaseSeeder>();
+
             return services;
         }
     }

@@ -1,10 +1,9 @@
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using marketplace.Data;
 using marketplace.Data.Models;
+using marketplace.Features.Products.Helpers;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace marketplace.Features.Products.Commands
 {
@@ -26,33 +25,16 @@ namespace marketplace.Features.Products.Commands
 
         public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-
-
             var product = new Product
             {
                 Name = request.Name,
-                Code = request.Code ?? await GenerateProductCode(cancellationToken),
-                Price = request.Price
+                Price = ProductPriceHelpers.RoundToTwoPlaces(request.Price)
             };
 
             context.Add(product);
             await context.SaveChangesAsync(cancellationToken);
 
             return product.Id;
-        }
-
-        private async Task<string> GenerateProductCode(CancellationToken cancellationToken)
-        {
-            var last = await context.Products
-                .OrderBy(x => x.Id)
-                .LastOrDefaultAsync(cancellationToken: cancellationToken);
-
-            if (last == null)
-            {
-                return 1.ToString("000");
-            }
-
-            return (last.Id + 1).ToString("000");
         }
     }
 }

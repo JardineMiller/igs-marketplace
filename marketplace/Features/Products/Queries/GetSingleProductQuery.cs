@@ -23,22 +23,24 @@ namespace marketplace.Features.Products.Queries
             this.context = context;
         }
 
-        public async Task<ProductResponseModel> Handle(GetSingleProductQuery request, CancellationToken cancellationToken)
+        public async Task<ProductResponseModel> Handle(GetSingleProductQuery request,
+            CancellationToken cancellationToken)
         {
-            var entity = await this.context.Products
+            var entity = await context.Products
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
             if (entity == null)
             {
                 throw new NotFoundException(nameof(Product), request.Id);
             }
 
-            return new ProductResponseModel()
+            return new ProductResponseModel
             {
-                Code = entity.Code,
+                Id = entity.Id,
+                Code = entity.Id.ToString("000"),
                 Name = entity.Name,
-                Price = entity.Price,
+                Price = entity.Price.ToString("F")
             };
         }
     }

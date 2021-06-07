@@ -27,9 +27,10 @@ namespace marketplace.Features.Products.Queries
                 .AsNoTracking()
                 .Select(x => new ProductResponseModel
                 {
+                    Id = x.Id,
                     Name = x.Name,
-                    Code = x.Code,
-                    Price = x.Price
+                    Code = x.Id.ToString("000"),
+                    Price = x.Price.ToString("F")
                 }).ToListAsync(cancellationToken);
         }
     }
