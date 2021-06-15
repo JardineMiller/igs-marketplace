@@ -1,5 +1,3 @@
-## Senior Backend Engineer - Tech Test
-
 ## Installation
 
 ### Pre-requisites
